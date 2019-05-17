@@ -64,7 +64,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
 }
 $date = date('Y-m-d', strtotime($_POST['date']));
 // подключаемся к базе
-include ("connection_to_database.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
+include ("connection_to_database.php");
 // проверка на существование пользователя с таким же логином
 $query = "SELECT id_user FROM user WHERE e_mail='$email' LIMIT 1";
 $result = mysqli_query($link,$query);

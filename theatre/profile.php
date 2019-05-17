@@ -68,6 +68,59 @@ echo "<div class='spectacle'>";
 mysqli_free_result($result);
 }
 ?>
+
+<?php
+require_once 'connection_to_database.php';
+
+$query ="
+     SELECT *
+     FROM reservation
+     LEFT JOIN ticket
+     ON reservation.id_reservation = ticket.id_reservation
+     LEFT JOIN schedule
+     ON reservation.id_schedule = schedule.id_schedule
+     LEFT JOIN spectacle
+     ON schedule.id_spectacle = spectacle.id_spectacle
+     LEFT JOIN hall
+     ON schedule.id_hall = hall.id_hall
+     WHERE id_user = $user_id
+";
+$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+
+
+
+if($result)
+{
+    $rows = mysqli_num_rows($result); // количество полученных строк
+
+    echo "<div class='afisha'>";
+    echo "<div class='cont'>";
+    echo "<h1>МОИ БРОНИРОВАНИЯ</h1>";
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_array($result)){
+            echo"<div class='schedule'>";
+            $name = $row["name_of_spectacle"];
+            $age =$row["age_limit"];
+            $date=  $row["date_spectacle"];
+            $hall= $row["number_of_hall"];
+            $price =$row["price"];
+            echo"<h1>$name</h1>";
+            echo"<p>$age</p>";
+            echo"<h4>ДАТА: $date</h4>";
+            echo "<h6>Hall: $hall</h6>";
+            echo "<h2>Price: $price</h2>";
+            echo"</div>";
+        }
+    }
+    else {echo "<h3>Данных нет</h3>";}
+    echo "</div>";
+    echo "</div>";
+
+    // очищаем результат
+    mysqli_free_result($result);
+}
+?>
+
 <div class="footer">
     <div class="container-header">
         <h3>O Сайте</h3>

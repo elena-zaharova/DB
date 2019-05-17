@@ -28,8 +28,8 @@ if (empty($count)) {
 
 }
 // подключаемся к базе
-include("connection_to_database.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
-// проверка на существование пользователя с таким же логином
+include("connection_to_database.php");
+
 $id=0;
 if(isset($_GET['id_schedule'])){
     $id = $_GET['id_schedule'];
