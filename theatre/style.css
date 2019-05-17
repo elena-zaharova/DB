@@ -1,0 +1,262 @@
+body
+{
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+h1{
+    font-family: 'Lato', sans-serif;
+    color: #59616e;
+    margin: 0 auto;
+    background-position: left;
+}
+
+.login
+{
+    float: right;
+}
+.container-header
+{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.title
+{
+    background: #f6f8fa;
+    max-width: 100%;
+    max-height: 45px;
+    border-bottom: 1px solid #e6e9ed;
+}
+
+.icon
+{
+    width: 4%;
+}
+
+.logo
+{
+    display: inline-block;
+    margin-bottom: -10px;
+}
+
+.navigation-bar
+{
+    margin: 0 auto;
+    max-width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #e6e9ed;
+    padding-bottom: 10px;
+}
+
+.nav-bar
+{
+    width: 600px;
+    display: inline-block;
+    list-style-type: disc;
+    margin: 0;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 130%;
+}
+
+li.nav
+{
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.footer
+{
+    background: #2f4052;
+    border-bottom: 1px solid #e6e9ed;
+    color:  white;
+}
+
+.container
+{
+    max-width: 100%;
+    height: 500px;
+}
+
+.info
+{
+    max-width: 50%;
+}
+
+.about
+{
+    display: inline-block;
+    width: 100%;
+    font-family: 'SansSerif', sans-serif;
+}
+
+
+.info
+{
+    max-width: 50%;
+    margin: 15px;
+    display: inline-block;
+}
+
+a.menu
+{
+    line-height: 20px;
+    font-weight: 700;
+    color: #506a85;
+}
+
+a.login {
+    display: inline-block;
+    color: rgba(110, 115, 255, 0.55);
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    margin-top: 4px;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+a.login:hover { background: rgba(255,255,255,.2); }
+a.login:active { background: white; }
+
+
+.block_search{
+    margin-top: 10px;
+    display: inline-block;
+    float: right;
+    overflow: hidden;
+    width: 200px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.block_search input#search{
+    width: 180px;
+    height: 30px;
+    background: rgba(227, 239, 255, 0.93);
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: black;
+    padding-left: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.block_search input#search::-webkit-input-placeholder {
+    color: #65737e;
+}
+
+.block_search input#search:-moz-placeholder { /* Firefox 18- */
+    color: #65737e;
+}
+
+.block_search input#search::-moz-placeholder {  /* Firefox 19+ */
+    color: #65737e;
+}
+
+.block_search input#search:-ms-input-placeholder {
+    color: #65737e;
+}
+
+.block_search button.icon{
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    border: none;
+    background: #232833;
+    height: 30px;
+    width: 30px;
+    color: #4f5b66;
+    opacity: 0;
+    font-size: 10pt;
+
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+}
+
+.block_search:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
+    outline: none;
+    opacity: 1;
+    margin-left: -30px;
+}
+
+.block_search:hover button.icon:hover{
+    background: rgba(139, 172, 255, 0.65);
+}
+
+.footer-bar
+{
+    display: inline-block;
+    text-align: center;
+    width: 500px;
+    vertical-align: top;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+a.foomenu
+{
+    line-height: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+h1.aboutt
+{
+    max-width: 100%;
+    font-family: 'Lato', sans-serif;
+    color: #59616e;
+    margin: 0 auto;
+    text-align: center;
+    background-position: center;
+    margin: 10px;
+}
+
+.phospec
+{
+    max-width: 100%;
+}
+
+.cont
+{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.onespec
+{
+    display: inline-block;
+    width: 17%;
+    margin-left: 35px;
+    text-align: center;
+}
+
+.schedule
+{
+    width:100%;
+    border-bottom: 1px solid #e6e9ed;
+}
+
+.afishapic
+{
+    width: 10%;
+    margin:10px;
+}
+
+a.reservation
+{
+
+}
