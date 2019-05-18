@@ -12,7 +12,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
 
     echo "
 			<div class='warning'>
-				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>PLease Fill all fields..!</b>
+				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>PLease Fill all fields..!</b>
 			</div>
 		";
     exit();
@@ -20,7 +20,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
     if (!preg_match($checkname, $name)) {
         echo "
 			<div class='warning'>
-				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
 				<b>this $name is not valid..!</b>
 			</div>
 		";
@@ -29,7 +29,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
     if (!preg_match($emailValidation, $email)) {
         echo "
 			<div class='warning'>
-				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
 				<b>this $email is not valid..!</b>
 			</div>
 		";
@@ -38,7 +38,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
     if (strlen($pass) < 9) {
         echo "
 			<div class='warning'>
-				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
 				<b>Password is weak</b>
 			</div>
 		";
@@ -47,7 +47,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
     if (strlen($repass) < 9) {
         echo "
 			<div class='warning'>
-				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
 				<b>Password is weak</b>
 			</div>
 		";
@@ -56,8 +56,8 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
     if ($pass != $repass) {
         echo "
 			<div class='warning'>
-				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>password is not same</b>
+				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<b>password is not the same</b>
 			</div>
 		";
     }

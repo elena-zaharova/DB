@@ -47,19 +47,11 @@ session_start();
      ON spectacle.id_spectacle = schedule.id_spectacle
      LEFT JOIN hall
      ON schedule.id_hall = hall.id_hall
-     LEFT JOIN spectacle_x_genre
-     ON spectacle.id_spectacle = spectacle_x_genre.id_spectacle
-     LEFT JOIN genre
-     ON genre.id_genre = spectacle_x_genre.id_genre
      WHERE spectacle.begin_date < CURRENT_DATE 
      AND spectacle.end_date > CURRENT_DATE 
      AND schedule.date_spectacle >= CURRENT_DATE 
-     ORDER BY schedule.date_spectacle DESC
-";
+     ORDER BY schedule.date_spectacle DESC";
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-
-
-
     if($result)
     {
         $rows = mysqli_num_rows($result); // количество полученных строк
@@ -76,20 +68,38 @@ session_start();
                 $bdate =$row["begin_date"];
                 $edate = $row["end_date"];
                 $date=  $row["date_spectacle"];
-                $genre= $row["genre"];
                 $hall= $row["number_of_hall"];
                 $id = $row["id_schedule"];
+                $id_spectacle = $row["id_spectacle"];
                 echo"<a href='one_spectacle.php'><h2>$name</h2></a>";
                 echo"<img class='afishapic' src='$photo' align='left' alt='spectacle'>";
                 echo"<p>$age</p>";
                 echo"<p>С $bdate до $edate</p>";
                 echo"<h4>ДАТА: $date</h4>";
-                echo "<h6>$genre</h6>";
+                $query2 =" SELECT *
+                         FROM spectacle
+                         LEFT JOIN spectacle_x_genre
+                         ON spectacle.id_spectacle = spectacle_x_genre.id_spectacle
+                         LEFT JOIN genre
+                         ON genre.id_genre = spectacle_x_genre.id_genre
+                         WHERE spectacle.id_spectacle = $id_spectacle";
+                $result2 = mysqli_query($link, $query2) or die("Ошибка " . mysqli_error($link));
+                if($result2) {
+                    $rows2 = mysqli_num_rows($result2); // количество полученных строк
+                    if (mysqli_num_rows($result2) > 0) {
+                        while ($row2 = mysqli_fetch_array($result2)) {
+                            echo "<div class='schedule'>";
+                            $genre = $row2["genre"];
+                            echo "<h6>$genre</h6>";
+                        }
+                    }
+                }
                 echo "<h6>$hall</h6>";
 
                 echo"<a class='login reservation' href='reservation.php?id=$id'>ЗАБРОНИРОВАТЬ</a>";
                 echo"</div>";
-            }}
+            }
+            }
         echo "</div>";
         echo "</div>";
 
