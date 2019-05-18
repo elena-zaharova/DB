@@ -51,7 +51,7 @@ require_once "connection_to_database.php";
     </p>
     <p>
         <label>Дата Рождения:<br></label>
-        <input type="date" name="date">"
+        <input type="date" name="date">
     </p>
     <p>
         <input type="submit" name="submit" value="Зарегистрироваться">

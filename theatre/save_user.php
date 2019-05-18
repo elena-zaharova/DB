@@ -12,7 +12,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
 
     echo "
 			<div class='warning'>
-				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>PLease Fill all fields..!</b>
+				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Заполните все поля!</b>
 			</div>
 		";
     exit();
@@ -21,7 +21,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
         echo "
 			<div class='warning'>
 				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>this $name is not valid..!</b>
+				<b>$name не возможно!</b>
 			</div>
 		";
         exit();
@@ -30,7 +30,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
         echo "
 			<div class='warning'>
 				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>this $email is not valid..!</b>
+				<b>$email Невозможен!</b>
 			</div>
 		";
         exit();
@@ -39,7 +39,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
         echo "
 			<div class='warning'>
 				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>Password is weak</b>
+				<b>Пароль короткий!</b>
 			</div>
 		";
         exit();
@@ -48,7 +48,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
         echo "
 			<div class='warning'>
 				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>Password is weak</b>
+				<b>Пароль короткий!</b>
 			</div>
 		";
         exit();
@@ -57,7 +57,7 @@ if(empty($email) || empty($name) || empty($pass) || empty($repass) || empty($dat
         echo "
 			<div class='warning'>
 				<a href='registration_form.php' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>password is not the same</b>
+				<b>Проль не одинаковый!</b>
 			</div>
 		";
     }
@@ -67,19 +67,19 @@ $date = date('Y-m-d', strtotime($_POST['date']));
 include ("connection_to_database.php");
 // проверка на существование пользователя с таким же логином
 $query = "SELECT id_user FROM user WHERE e_mail='$email' LIMIT 1";
-$result = mysqli_query($link,$query);
+$result = mysqli_query($link, $query);
 $myrow = mysqli_fetch_array($result);
 if (!empty($myrow['id_user'])) {
     exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
 }
 // если такого нет, то сохраняем данные
-$query2 = "INSERT INTO user (id_user, name, e_mail, password, date_of_birth) VALUES(NULL,$name,$email,$pass,$date)";
-$result2 = mysqli_query($link,$query2);
+$query2 = "INSERT INTO user VALUES(NULL, '$name', '$email', '$pass', '$date')";
+$result2 = mysqli_query($link, $query2);
 // Проверяем, есть ли ошибки
-echo($result2);
-if ($result2=='TRUE')
+
+if ($result2)
 {
-    echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='login_form.php'>Главная страница</a>";
+    echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='login_form.php'>Вход</a>";
 }
 else {
     echo "Ошибка! Вы не зарегистрированы.";
