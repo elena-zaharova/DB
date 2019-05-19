@@ -31,25 +31,31 @@ header('Content-Type: text/html; charset=utf-8');
         </div>
     </div>
 </div>
-
+<div class="content">
+    <div class="cont">
+        <div class="forma">
 <?php
 // Проверяем, пусты ли переменные логина и id пользователя
 if (empty($_SESSION['e_mail']) or empty($_SESSION['id_user']))
 {
     ?>
-    <!--Если пусты, то выводим форму входа.-->
     <div style="border: 0px solid blue;
  position:relative; top:100px; left:400px; height:200px; width:300px;">
 
-        <form action="check_user.php" method="post">
-            <label>логин:</label><br/>
-            <input name="email" type="text" size="30" maxlength="30"><br/>
-            <label>пароль:</label><br/>
-            <input name="pass" type="password" size="15" maxlength="15"><br/><br/>
-            <input type="submit" value="войти"><br/><br/>
+        <form class="ui-form" action="check_user.php" method="post">
+            <h3>ВХОД</h3>
+            <div class="form-row">
+                <label>Email:</label><br/>
+                <input name="email" type="text" size="30" maxlength="30">
+            </div>
+            <div class="form-row">
+                <label>Пароль:</label>
+                <input name="pass" type="password" size="15" maxlength="30">
+            </div>
+            <p><input type="submit" value="войти"></p>
         </form>
 
-        <a href="registration_form.php">регистрация</a>
+        <a class='login loginr' href="registration_form.php">регистрация</a>
     </div>
     <?php
 }
@@ -82,6 +88,9 @@ style='border: 0px solid blue; position:relative; top:100px; left:350px; height:
 </div>";
 }
 ?>
+    </div>
+    </div>
+</div>
 
 <div class="footer">
     <div class="container-header">

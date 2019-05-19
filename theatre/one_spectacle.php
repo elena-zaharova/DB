@@ -24,7 +24,8 @@ session_start();
             {
                 echo"<a class='logo login' href='login_form.php'>ВХОД</a>";
             }
-            ?>div>
+            ?>
+            </div>
     </div>
     <div class="navigation-bar">
         <div class="container-header">
@@ -53,8 +54,9 @@ session_start();
     {
         $rows = mysqli_num_rows($result); // количество полученных строк
 
-        echo "<div class='spectacle'>";
+        echo "<div class='content'>";
         echo "<div class='cont'>";
+        echo "<div class='spectacle'>";
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
                 $name = $row["name_of_spectacle"];
@@ -64,12 +66,13 @@ session_start();
                 $bdate =$row["begin_date"];
                 $edate =$row["end_date"];
                 echo"<h2>$name</h2>";
-                echo"<img class='phospec' src='$photo' alt='spectacle'>";
-                echo"<p>$age</p>";
-                echo"<h4>с $bdate до $edate </h4>";
+                echo"<img class='onespec' src='$photo' align='left' alt='spectacle'>";
+                echo"<p>Возрастное ограничение $age</p>";
+                echo"<h4>Проходит в театре с $bdate до $edate </h4>";
                 echo"<p>$about</p>";
                 echo"</div>";
             }}
+        echo "</div>";
         echo "</div>";
         echo "</div>";
 

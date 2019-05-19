@@ -50,9 +50,10 @@ if($result)
 {
     $rows = mysqli_num_rows($result); // количество полученных строк
 
-    echo "<div class='spectacle'>";
+    echo "<div class='content'>";
     echo "<div class='cont'>";
-    echo "<h1>СПЕКТАКЛИ</h1>";
+    echo "<div class='spectacle'>";
+    echo "<h1 class='afisha'>СПЕКТАКЛИ</h1>";
     if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_array($result)){
         $id =  $row["id_spectacle"];
@@ -67,7 +68,7 @@ if($result)
     }}
     echo "</div>";
     echo "</div>";
-
+    echo "</div>";
     // очищаем результат
     mysqli_free_result($result);
 }

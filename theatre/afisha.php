@@ -7,7 +7,7 @@ session_start();
 <head>
     <link rel="shortcut icon" href="theatre.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
     <title>Театр NO NAME</title>
 </head>
 <body>
@@ -25,6 +25,7 @@ session_start();
                 echo"<a class='logo login' href='login_form.php'>ВХОД</a>";
             }
             ?>
+
         </div>
     </div>
     <div class="navigation-bar">
@@ -36,11 +37,15 @@ session_start();
             </ul>
         </div>
     </div>
+</div>
 
-    <?php
-    require_once 'connection_to_database.php';
+    <div class='contrent'>
+    <div class='cont'>
+        <h1 class="afisha">АФИША</h1>
+        <?php
+        require_once 'connection_to_database.php';
 
-    $query ="
+        $query ="
      SELECT *
      FROM spectacle
      LEFT JOIN schedule
@@ -51,74 +56,66 @@ session_start();
      AND spectacle.end_date > CURRENT_DATE 
      AND schedule.date_spectacle >= CURRENT_DATE 
      ORDER BY schedule.date_spectacle DESC";
-    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-    if($result)
-    {
-        $rows = mysqli_num_rows($result); // количество полученных строк
-
-        echo "<div class='afisha'>";
-        echo "<div class='cont'>";
-        echo "<h1>АФИША</h1>";
-        if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_array($result)){
-                echo"<div class='schedule'>";
-                $name = $row["name_of_spectacle"];
-                $age =$row["age_limit"];
-                $photo =$row["photo_of_spectacle"];
-                $bdate =$row["begin_date"];
-                $edate = $row["end_date"];
-                $date=  $row["date_spectacle"];
-                $hall= $row["number_of_hall"];
-                $id = $row["id_schedule"];
-                $id_spectacle = $row["id_spectacle"];
-                echo"<a href='one_spectacle.php'><h2>$name</h2></a>";
-                echo"<img class='afishapic' src='$photo' align='left' alt='spectacle'>";
-                echo"<p>$age</p>";
-                echo"<p>С $bdate до $edate</p>";
-                echo"<h4>ДАТА: $date</h4>";
-                $query2 =" SELECT *
+        echo"<div class='afishaspec'>";
+        $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+        if($result) {
+            $rows = mysqli_num_rows($result); // количество полученных строк
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<div class='schedule'>";
+                    $name = $row["name_of_spectacle"];
+                    $age = $row["age_limit"];
+                    $photo = $row["photo_of_spectacle"];
+                    $bdate = $row["begin_date"];
+                    $edate = $row["end_date"];
+                    $date = $row["date_spectacle"];
+                    $hall = $row["number_of_hall"];
+                    $id = $row["id_schedule"];
+                    $id_spectacle = $row["id_spectacle"];
+                    echo "<a href='one_spectacle.php'><h2>$name</h2></a>";
+                    echo "<img class='afishapic' src='$photo' align='left' alt='spectacle'>";
+                    echo "<p>$age</p>";
+                    echo "<p>С $bdate до $edate</p>";
+                    echo "<h4>ДАТА: $date</h4>";
+                    $query2 = " SELECT *
                          FROM spectacle
                          LEFT JOIN spectacle_x_genre
                          ON spectacle.id_spectacle = spectacle_x_genre.id_spectacle
                          LEFT JOIN genre
                          ON genre.id_genre = spectacle_x_genre.id_genre
                          WHERE spectacle.id_spectacle = $id_spectacle";
-                $result2 = mysqli_query($link, $query2) or die("Ошибка " . mysqli_error($link));
-                if($result2) {
-                    $rows2 = mysqli_num_rows($result2); // количество полученных строк
-                    if (mysqli_num_rows($result2) > 0) {
-                        while ($row2 = mysqli_fetch_array($result2)) {
-                            echo "<div class='schedule'>";
-                            $genre = $row2["genre"];
-                            echo "<h6>$genre</h6>";
+                    $result2 = mysqli_query($link, $query2) or die("Ошибка " . mysqli_error($link));
+                    if ($result2) {
+                        $rows2 = mysqli_num_rows($result2); // количество полученных строк
+                        if (mysqli_num_rows($result2) > 0) {
+                            while ($row2 = mysqli_fetch_array($result2)) {
+                                $genre = $row2["genre"];
+                                echo "<h6>$genre</h6>";
+                            }
                         }
                     }
+                    echo "<h6>$hall</h6>";
+                    echo "<a class='login reservation' href='reservation.php?id=$id'>ЗАБРОНИРОВАТЬ</a>";
+                    echo "</div>";
                 }
-                echo "<h6>$hall</h6>";
-
-                echo"<a class='login reservation' href='reservation.php?id=$id'>ЗАБРОНИРОВАТЬ</a>";
-                echo"</div>";
             }
-            }
-        echo "</div>";
-        echo "</div>";
-
-        // очищаем результат
-        mysqli_free_result($result);
-    }
-    ?>
-    <div class="footer">
-        <div class="container-header">
-            <h3>O Сайте</h3>
-            <ul class="footer-bar">Контакты
-                <li class="footer-nav">Телефон : 12-34-56 8(556)677-86-80</li>
-            </ul>
-            <ul class="footer-bar">Навигация
-                <li class="footer-nav"><a class="foomenu" href="index.php">Главная</a></li>
-                <li class="footer-nav"><a class="foomenu" href="afisha.php">Афиша</a></li>
-                <li class="footer-nav"><a class="foomenu" href="spectacle.php">Спектакли</a></li>
-            </ul>
-        </div>
+        }
+        ?>
     </div>
+</div>
+
+<div class="footer">
+    <div class="container-header">
+        <h3>O Сайте</h3>
+        <ul class="footer-bar">Контакты
+            <li class="footer-nav">Телефон : 12-34-56 8(556)677-86-80</li>
+        </ul>
+        <ul class="footer-bar">Навигация
+            <li class="footer-nav"><a class="foomenu" href="index.php">Главная</a></li>
+            <li class="footer-nav"><a class="foomenu" href="afisha.php">Афиша</a></li>
+            <li class="footer-nav"><a class="foomenu" href="spectacle.php">Спектакли</a></li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>

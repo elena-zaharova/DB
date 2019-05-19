@@ -11,6 +11,11 @@ h1{
     background-position: left;
 }
 
+h2
+{
+    text-align: center;
+}
+
 .login
 {
     float: right;
@@ -71,6 +76,7 @@ li.nav
     background: #2f4052;
     border-bottom: 1px solid #e6e9ed;
     color:  white;
+    width: 100%;
 }
 
 .container
@@ -122,80 +128,6 @@ a.login {
 a.login:hover { background: rgba(255,255,255,.2); }
 a.login:active { background: white; }
 
-
-.block_search{
-    margin-top: 10px;
-    display: inline-block;
-    float: right;
-    overflow: hidden;
-    width: 200px;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-.block_search input#search{
-    width: 180px;
-    height: 30px;
-    background: rgba(227, 239, 255, 0.93);
-    border: none;
-    font-size: 10pt;
-    float: left;
-    color: black;
-    padding-left: 15px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-
-.block_search input#search::-webkit-input-placeholder {
-    color: #65737e;
-}
-
-.block_search input#search:-moz-placeholder { /* Firefox 18- */
-    color: #65737e;
-}
-
-.block_search input#search::-moz-placeholder {  /* Firefox 19+ */
-    color: #65737e;
-}
-
-.block_search input#search:-ms-input-placeholder {
-    color: #65737e;
-}
-
-.block_search button.icon{
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-
-    border: none;
-    background: #232833;
-    height: 30px;
-    width: 30px;
-    color: #4f5b66;
-    opacity: 0;
-    font-size: 10pt;
-
-    -webkit-transition: all .55s ease;
-    -moz-transition: all .55s ease;
-    -ms-transition: all .55s ease;
-    -o-transition: all .55s ease;
-    transition: all .55s ease;
-}
-
-.block_search:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
-    outline: none;
-    opacity: 1;
-    margin-left: -30px;
-}
-
-.block_search:hover button.icon:hover{
-    background: rgba(139, 172, 255, 0.65);
-}
-
 .footer-bar
 {
     display: inline-block;
@@ -239,7 +171,7 @@ h1.aboutt
 .onespec
 {
     display: inline-block;
-    width: 17%;
+    width: 16%;
     margin-left: 35px;
     text-align: center;
 }
@@ -247,7 +179,6 @@ h1.aboutt
 .schedule
 {
     width:100%;
-    border-bottom: 1px solid #e6e9ed;
 }
 
 .afishapic
@@ -256,7 +187,102 @@ h1.aboutt
     margin:10px;
 }
 
-a.reservation
+.content
 {
+    min-height:500px;
+}
 
+.ui-form {
+    max-width: 350px;
+    background: white;
+}
+.ui-form h3 {
+    position: relative;
+    z-index: 5;
+    margin: 0 0 60px;
+    text-align: center;
+    color: #4a90e2;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.form-row {
+    position: relative;
+    margin-bottom: 40px;
+}
+.form-row input {
+    display: block;
+    width: 100%;
+    padding: 0 10px;
+    line-height: 40px;
+    font-family: 'Roboto', sans-serif;
+    background: none;
+    border-width: 0;
+    border-bottom: 2px solid #4a90e2;
+    transition: all 0.2s ease;
+}
+.form-row label {
+    position: absolute;
+    left: 13px;
+    color: #9d959d;
+    font-size: 20px;
+    font-weight: 300;
+    transform: translateY(-35px);
+    transition: all 0.2s ease;
+}
+.form-row input:focus {
+    outline: 0;
+    border-color: #F77A52;
+}
+.form-row input:focus + label,
+.form-row input:valid + label {
+    transform: translateY(-60px);
+    margin-left: -14px;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+    border-color: #F77A52;
+    color: #F77A52;
+}
+.ui-form input[type="submit"] {
+    width: 100%;
+    padding: 0;
+    line-height: 42px;
+    background: #4a90e2;
+    border-width: 0;
+    color: white;
+    font-size: 20px;
+}
+.ui-form p {
+    margin: 0;
+    padding-top: 10px;
+}
+
+.forma
+{
+    width: 100%;
+    display:block;
+}
+
+.onespec
+{
+    margin: 20px;
+}
+
+.loginr
+{
+    width: 80%;
+}
+h1.afisha {
+    text-align: center;
+}
+.afishaspec
+{
+    display:inline-block;
+    width: 100%;
+    border-bottom: 1px solid #e6e9ed;
+}
+
+a.reservation{
+    display: inline-block;
 }

@@ -30,33 +30,37 @@ require_once "connection_to_database.php";
         </div>
     </div>
 </div>
-
-<h2>Регистрация</h2>
-<form action="save_user.php" method="post">
-    <p>
+<div class="content">
+    <div class="cont">
+        <div class="forma">
+            <div style="border: 0px solid blue; position:relative; top:100px; left:400px; height:200px; width:300px;"></div>
+<form class="ui-form" action="save_user.php" method="post">
+    <h3>Регистрация</h3>
+    <div class="form-row">
         <label>ФИО:<br></label>
         <input name="name" type="text" size="30" maxlength="30">
-    </p>
-    <p>
+    </div>
+    <div class="form-row">
         <label>Email<br></label>
         <input name="email" type="text" size="30" maxlength="30">
-    </p>
-    <p>
+    </div>
+    <div class="form-row">
         <label>Пароль:<br></label>
-        <input name="pass" type="password" size="30" maxlength="30">
-    </p>
-    <p>
+        <input name="pass" type="password" size="15" maxlength="30">
+    </div>
+    <div class="form-row">
         <label>Повторите пароль:<br></label>
-        <input name="repass" type="password" size="30" maxlength="30">
-    </p>
-    <p>
+        <input name="repass" type="password" size="15" maxlength="30">
+    </div>
+    <div class="form-row">
         <label>Дата Рождения:<br></label>
         <input type="date" name="date">
-    </p>
-    <p>
-        <input type="submit" name="submit" value="Зарегистрироваться">
-    </p></form>
-
+    </div>
+        <input type="submit" name="submit" value="Зарегистрироваться"></p>
+    </form>
+    </div>
+</div>
+</div>
 
 <div class="footer">
     <div class="container-header">

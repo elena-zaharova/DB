@@ -33,6 +33,10 @@ if(!isset($_SESSION["id"])) {
     </div>
 </div>
 
+<div class="content">
+    <div class="cont">
+        <div class="profile">
+
 <?php
 require_once 'connection_to_database.php';
 
@@ -46,31 +50,21 @@ $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($lin
 if($result)
 {
 $rows = mysqli_num_rows($result); // количество полученных строк
-
-echo "<div class='spectacle'>";
-    echo "<div class='cont'>";
-        echo "<h1>ПРОФИЛЬ</h1>";
+        echo "<h1 class='afisha'>ПРОФИЛЬ</h1>";
         if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
             $name = $row["name"];
             $date =$row["date_of_birth"];
             echo"<h2>ФИО: $name</h2></a>";
             echo"<p>Дата Рождения: $date</p>";
+            $id = $_SESSION["id"];
+            echo"<a class='login' href='delete_acc.php?id=$id'>Удалить аккаунт</a>";
             echo"</div>";
-        }}
-        echo "</div>";
-    echo "</div>";
-    echo"<div class='tickets'>";
-    //по резервациям
-    echo"</div>";
-
+        }
+        }
 // очищаем результат
 mysqli_free_result($result);
 }
-?>
-
-<?php
-require_once 'connection_to_database.php';
 
 $query ="
      SELECT *
@@ -87,15 +81,11 @@ $query ="
 ";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 
-
-
 if($result)
 {
     $rows = mysqli_num_rows($result); // количество полученных строк
 
-    echo "<div class='afisha'>";
-    echo "<div class='cont'>";
-    echo "<h1>МОИ БРОНИРОВАНИЯ</h1>";
+    echo "<h1 class='afisha'>МОИ БРОНИРОВАНИЯ</h1>";
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
             echo"<div class='schedule'>";
@@ -104,22 +94,27 @@ if($result)
             $date=  $row["date_spectacle"];
             $hall= $row["number_of_hall"];
             $price =$row["price"];
+            $id_reservation = $row["id_reservation"] ;
             echo"<h1>$name</h1>";
             echo"<p>$age</p>";
+            echo"<h4>Номер бронирования: $id_reservation</h4>";
             echo"<h4>ДАТА: $date</h4>";
             echo "<h6>Hall: $hall</h6>";
             echo "<h2>Price: $price</h2>";
+            echo"<a class='login' href='delete_reservation.php?reservation=$id_reservation'>Удалить бронирование</a>";
             echo"</div>";
         }
     }
     else {echo "<h3>Данных нет</h3>";}
-    echo "</div>";
-    echo "</div>";
-
     // очищаем результат
     mysqli_free_result($result);
 }
+
+
 ?>
+        </div>
+    </div>
+</div>
 
 <div class="footer">
     <div class="container-header">
