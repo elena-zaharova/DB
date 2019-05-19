@@ -33,7 +33,6 @@ if(!isset($_SESSION["id"])) {
         </div>
     </div>
 
-    <h2>БРОНИРОВАНИЕ</h2>
         <?php
         require_once 'connection_to_database.php';
 
@@ -48,7 +47,6 @@ if(!isset($_SESSION["id"])) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $name = $row["name"];
-                    echo "<h3>Ф.И.О. : $name</h3>";
                 }
             }
         }
@@ -65,7 +63,8 @@ if(!isset($_SESSION["id"])) {
                  ON schedule.id_hall = hall.id_hall
                  WHERE schedule.id_schedule  = $id";
 
-        echo"<form action='process_reservation.php?id_schedule=$id&user_id=$user_id' method='post'>";
+        echo"<form class='ui-form' action='process_reservation.php?id_schedule=$id&user_id=$user_id' method='post'>";
+        echo"<h2>БРОНИРОВАНИЕ</h2>";
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
         if($result) {
             $rows = mysqli_num_rows($result);
@@ -74,17 +73,20 @@ if(!isset($_SESSION["id"])) {
                     $namespectacle = $row["name_of_spectacle"];
                     $hall = $row["number_of_hall"];
                     $date = $row["date_spectacle"];
-                    echo "<h3>Название спектакля : $namespectacle</h3>";
-                    echo "<h3>Дата прохождения: : $date</h3>";
+                    echo "<div class='form-row'>";
+                    echo "<h3>Ф.И.О. : $name</h3>";
+                    echo "<h3>Название спектакля: $namespectacle</h3>";
+                    echo "<h3>Дата прохождения: $date</h3>";
                     echo "<h3>Номер Зала : $hall</h3>";
+                    echo "</div>";
                 }
             }
         }
 
-        echo"<p>
+        echo"<div class='form-row'>
             <label>Количество:<br></label>
             <input type='number' name='count'>
-        </p>
+        </div>
         <p>
             <input type='submit' name='submit' value='Забронировать'>
         </p>

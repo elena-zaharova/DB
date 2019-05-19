@@ -72,7 +72,7 @@ session_start();
                     $hall = $row["number_of_hall"];
                     $id = $row["id_schedule"];
                     $id_spectacle = $row["id_spectacle"];
-                    echo "<a href='one_spectacle.php'><h2>$name</h2></a>";
+                    echo "<a href='one_spectacle.php?id=$id_spectacle'><h2>$name</h2></a>";
                     echo "<img class='afishapic' src='$photo' align='left' alt='spectacle'>";
                     echo "<p>$age</p>";
                     echo "<p>С $bdate до $edate</p>";

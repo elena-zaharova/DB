@@ -60,6 +60,7 @@ session_start();
                     <label>Повторите пароль:<br></label>
                     <input name="repass" type="password" size="15" maxlength="30">
                 </div>
+                <p>
                 <input type="submit" name="submit" value="Сохранить"></p>
             </form>
         </div>
