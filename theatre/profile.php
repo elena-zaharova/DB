@@ -59,6 +59,8 @@ $rows = mysqli_num_rows($result); // количество полученных �
             echo"<p>Дата Рождения: $date</p>";
             $id = $_SESSION["id"];
             echo"<a class='login' href='delete_acc.php?id=$id'>Удалить аккаунт</a>";
+            echo"<a class='login' href='update_acc_form.php'>Изменить Email и пароль</a>";
+            echo"<a class='login' href='update_personal_data_form.php'>Изменить дату рождения и имя</a>";
             echo"</div>";
         }
         }
